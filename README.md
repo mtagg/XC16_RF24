@@ -8,11 +8,11 @@
 //
 //
 #/*Files used for testing purposes*/
-//   main.c
-//   IO.c
-//   IO.h
-//
-//
+*   main.c
+*   IO.c
+*   IO.h
+*
+*
 #/*Files to be used for general library/firmware*/
 #    SPI.h
 #    SPI.c
