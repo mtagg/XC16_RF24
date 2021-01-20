@@ -1,0 +1,6 @@
+./build/
+./RF24.cpp
+./RF24.h
+./Makefile
+./nbproject/
+./dist/
