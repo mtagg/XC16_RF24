@@ -1,20 +1,20 @@
 
 # XC16_RF24
-\n
-#/* README IS A WORK IN PROGRESS */\n
-
-
-#/* How to use this library */ \n
 *
-   no idea right now :p
+#/* README IS A WORK IN PROGRESS */
 *
-#/*Files used for testing purposes*/\n
+*
+#/* How to use this library */ 
+*
+*   no idea right now :p
+*
+#/*Files used for testing purposes*/
 *   main.c
 *   IO.c
 *   IO.h
 *
 *
-#/*Files to be used for general library/firmware*/\n
+#/*Files to be used for general library/firmware*/
 *    SPI.h
 *    SPI.c
 *    nRF24.h
