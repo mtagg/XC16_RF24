@@ -1,7 +1,5 @@
 #include "SPI.h"
 
-
-
 void MasterInit(){ //8-bit, framed off
 //    TRISBbits.TRISB15 = 0;       // SS1 digital out
 //    TRISBbits.TRISB12 = 0;       //SCLK digital out     
@@ -91,7 +89,6 @@ void SlaveInit(){//8-bit, framed off
     return;
 }
 
-
 uint8_t SPI_Comm(uint8_t word){ //used for master transmit mode
 //clear flags   
     IFS0bits.SPI1IF = 0;                //  clear SPI interrupt flag
@@ -107,9 +104,6 @@ uint8_t SPI_Comm(uint8_t word){ //used for master transmit mode
     delay_ms(1);
     return SPI1BUF;
 }
-
-
-
 
 #ifdef MASTER_TRANSMITTER
 void __attribute__ ((interrupt, no_auto_psv)) _SPI1Interrupt(){

@@ -8,8 +8,6 @@
 #ifndef NRF24_H
 #define	NRF24_H
 
-
-
 #include <xc.h>
 #include "CONFIG.h"
 #include "nRF24L01.h"
@@ -24,11 +22,20 @@
 //multiple pipeline settings
 //dynamic payload width settings
 //flush RX and flush TX
+/* END TODO */
 
 
-//void setCE(bit);
-///* sets Chip Enable register pin used to control slave*/
-//void setCSn(byte
+
+
+void CE_Init(char Register_x, uint8_t bit_index);
+/* sets Chip Enable register pin used to control slave*/
+void CSn_Init(char Register_x, uint8_t bit_index);
+/* sets Chip Select (n) register pin used to start data transfer to nRF module*/
+void WriteCSn(uint8_t setting);
+/*writes to CSn*/
+void WriteCE(uint8_t setting);
+/*writes to CE*/
+
 void WriteRegister(uint8_t reg, uint8_t set);
 /*method used to write to a register within nRF module
  @param reg accepts an 8 bit address
