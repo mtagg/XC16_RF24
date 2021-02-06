@@ -4,3 +4,4 @@ RF24.h
 Makefile
 nbproject/
 dist/
+XC16_RF24_Blinky.X/
