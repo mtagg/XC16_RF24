@@ -1,7 +1,7 @@
 build/
 RF24.cpp
 RF24.h
-Makefile
+*.Makefile
 nbproject/
 dist/
 XC16_RF24_Blinky.X/
