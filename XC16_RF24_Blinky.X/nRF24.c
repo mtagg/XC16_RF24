@@ -1,82 +1,91 @@
+
 #include "nRF24.h"
 
 
 char CE_REGISTER;
 char CSN_REGISTER;
-uint8_t CE_REGISTER_BIT;
-uint8_t CSN_REGISTER_BIT;
+unsigned int REGISTER_BIT_CE;
+unsigned int REGISTER_BIT_CSN;
 
 void CE_Init(char Register_x, uint8_t bit_index){
-    CE_REGISTER_BIT = bit_index;
+    REGISTER_BIT_CE = bit_index;
     if (Register_x == 'a' || Register_x == 'A'){
         CE_REGISTER = 'A';
-
-        switch (bit_index){
-        case 0:
-            TRISA = TRISA & 0xFFFE; //RA0 set to output (0)
-            break;
+        TRISA = TRISA & ~(0x0001 << bit_index);
+        return;
         
-        default:
-            TRISA = TRISA & ~(0x0001 << (bit_index - 1));
-            break;
-        }
-
     }else if (Register_x == 'b' || Register_x == 'B'){
         CE_REGISTER = 'B';
-
-        switch (bit_index){
-        case 0:
-            TRISB = TRISB & 0xFFFE; //RB0 set to output (0)
-            break;
-
-        default:
-            TRISB = TRISB & ~(0x0001 << (bit_index-1));
-            break;
-        }
+        TRISB = TRISB & ~(0x0001 << bit_index);
+        return;
     }
 }
 void CSn_Init(char Register_x, uint8_t bit_index){
-    CSN_REGISTER_BIT = bit_index;
+    REGISTER_BIT_CSN = bit_index;
     if (Register_x == 'a' || Register_x == 'A'){
         CSN_REGISTER = 'A';
-
-        switch (bit_index)
-        {
-        case 0:
-            TRISA = TRISA & 0xFFFE; //RA0 set to output (0)
-            break;
-
-        default:
-            TRISA = TRISA & ~(0x0001 << (bit_index - 1));
-            break;
-        }
+        TRISA = TRISA & ~(0x0001 << bit_index);
+        return;
     }
     else if (Register_x == 'b' || Register_x == 'B'){
         CSN_REGISTER = 'B';
+        TRISB = TRISB & ~(0x0001 << bit_index);
+        return;
 
-        switch (bit_index)
-        {
-        case 0:
-            TRISB = TRISB & 0xFFFE; //RB0 set to output (0)
-            break;
-
-        default:
-            TRISB = TRISB & ~(0x0001 << (bit_index - 1));
-            break;
-        }
     }
 }
-void WriteCSn(uint8_t setting){
+void WriteCSn(uint8_t setting)
+{
+    if (CSN_REGISTER == 'A')
+    {
+        if (setting == 1)
+        {
+            LATA = LATA | (0x0001 << REGISTER_BIT_CSN);
+        }
+        else if (setting == 0)
+        {
+            LATA = LATA & ~(0x0001 << REGISTER_BIT_CSN);
+        }
+    }
+    else if (CSN_REGISTER == 'B')
+    {
+        if (setting == 1)
+        {
+            LATB = LATB | (0x0001 << REGISTER_BIT_CSN);
+        }
+        else if (setting == 0)
+        {
+            LATB = LATB & ~(0x0001 << REGISTER_BIT_CSN);
+        }
+    }
     return;
 }
-void WriteCE(uint8_t setting){
+void WriteCE(uint8_t setting)
+{
+    if (CE_REGISTER == 'A')
+    {
+        if (setting == 1)
+        {
+            LATA = LATA | (0x0001 << REGISTER_BIT_CE);
+        }
+        else if (setting == 0)
+        {
+            LATA = LATA & ~(0x0001 << REGISTER_BIT_CE);
+        }
+    }
+    else if (CE_REGISTER == 'B')
+    {
+        if (setting == 1)
+        {
+            LATB = LATB | (0x0001 << REGISTER_BIT_CE);
+        }
+        else if (setting == 0)
+        {
+            LATB = LATB & ~(0x0001 << REGISTER_BIT_CE);
+        }
+    }
     return;
 }
-
-
-
-
-
 
 
 

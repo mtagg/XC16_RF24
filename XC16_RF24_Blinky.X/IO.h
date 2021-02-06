@@ -4,8 +4,8 @@
 #ifndef IO_H
 #define	IO_H
 
-#include <xc.h> // include processor files - each processor file is guarded.  
-#include "nRF24L01.h"
+#include <xc.h>
+#include <p24F16KA101.h>
 
 void IOinit();
 void __attribute__ ((interrupt, no_auto_psv))_CNInterrupt();

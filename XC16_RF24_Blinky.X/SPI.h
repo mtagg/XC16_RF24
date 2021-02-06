@@ -3,8 +3,11 @@
 #ifndef SPI_H
 #define	SPI_H
 
-#include <xc.h> // include processor files - each processor file is guarded.  
-#include "CONFIG.h"
+//#include <xc.h> // include processor files - each processor file is guarded.  
+
+#include <xc.h>
+#include <p24F16KA101.h>
+
 #include "nRF24L01.h"
 #include "nRF24.h"
 #include "delay.h"
